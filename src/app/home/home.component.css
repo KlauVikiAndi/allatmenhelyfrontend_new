@@ -1,0 +1,56 @@
+main {
+    max-width: 1400px; /* Megnövelt max szélesség */
+    margin: 80px auto 20px; /* Kiegyensúlyozott margók */
+    padding: 20px;
+}
+
+.banner {
+    width: 100%;
+    height: auto; /* Ne fix magasságú legyen */
+    max-height: 400px; /* Maximális magasság */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 60px; /* Hogy ne takarja a navbar */
+}
+
+.banner img {
+    width: 100%;
+    height: auto; /* Megőrzi az arányokat */
+    max-height: 400px;
+    object-fit: cover; /* Megakadályozza a torzulást */
+}
+
+/* Mobilon kisebb banner */
+@media (max-width: 768px) {
+    .banner {
+        max-height: 250px;
+    }
+
+    .banner img {
+        max-height: 250px;
+    }
+}
+
+.news, .process, .about-us {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    margin: 20px 0;
+}
+
+.process .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.process .col-md-4 {
+    flex: 1;
+    padding: 15px;
+    min-width: 300px;
+}
+
+.about-us {
+    background-color: #e9ecef;
+}

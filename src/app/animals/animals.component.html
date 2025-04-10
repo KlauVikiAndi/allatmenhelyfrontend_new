@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <div class="row">
+    <div *ngFor="let animal of animals" class="col-md-4 mb-4">
+      <div class="card">
+        <img [src]="animal.image" class="card-img-top" [alt]="animal.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ animal.name }}</h5>
+          <p class="card-text">{{ animal.description }}</p>
+          <p><strong>Becsült születési ideje:</strong> {{ animal.date_of_birth }}</p>
+          <p><strong>Bekerülés dátuma:</strong> {{ animal.date_of_admission }}</p>
+
+          <!-- Kedvenc gomb -->
+          <button class="btn" 
+                  [ngClass]="animal.isFavorite ? 'btn-danger' : 'btn-outline-danger'" 
+                  (click)="toggleFavorite(animal)">
+            <i class="bi" [ngClass]="animal.isFavorite ? 'bi-heart-fill' : 'bi-heart'"></i>
+            {{ animal.isFavorite ? 'Kedvencből törlés' : 'Kedvencekhez adás' }}
+          </button>
+
+          <!-- Időpontfoglalás -->
+          <div class="mt-3">
+            <label>Dátum:</label>
+            <input type="date" [(ngModel)]="appointmentDates[animal.name].date">
+
+            <label>Óra:</label>
+            <select [(ngModel)]="appointmentDates[animal.name].hour">
+              <option *ngFor="let hour of hours" [value]="hour">{{ hour }}:00</option>
+            </select>
+
+            <label>Perc:</label>
+            <select [(ngModel)]="appointmentDates[animal.name].minute">
+              <option *ngFor="let minute of minutes" [value]="minute">{{ minute | number: '2.0' }}</option>
+            </select>
+
+            <button class="btn btn-primary mt-2" (click)="bookAppointment(animal.name)">
+              Időpont foglalása
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

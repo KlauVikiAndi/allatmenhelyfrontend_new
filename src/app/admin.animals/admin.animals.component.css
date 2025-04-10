@@ -1,0 +1,35 @@
+/* Table responsive for smaller screens */
+.table-responsive {
+    overflow-x: auto; /* Allow horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+}
+
+/* Kép beállítása */
+.animal-img {
+    width: 100px; /* Kép szélessége */
+    height: auto; /* Arányos magasság */
+}
+
+/* Optionally: Style for table inputs and textareas */
+.table input, .table textarea {
+    font-size: 0.9rem; /* Smaller text size for inputs and textareas */
+    padding: 0.5rem; /* Add some padding for better user experience */
+}
+
+/* A táblázat oszlopainak szélessége */
+.table th, .table td {
+    min-width: 150px; /* Minimum szélesség beállítása */
+    padding: 1rem; /* Növelt padding a cellákban */
+    word-wrap: break-word; /* Szó törése, ha szükséges */
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        padding: 1rem; /* Növelt padding mobilon */
+    }
+
+    /* Az input és textarea mezők is nagyobbak lesznek */
+    .table input, .table textarea {
+        font-size: 1rem; /* Növelt betűméret */
+    }
+}
